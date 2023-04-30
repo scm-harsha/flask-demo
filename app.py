@@ -3,6 +3,9 @@ waitress is a web server which works well in prod for flask
 """
 from waitress import serve
 from flask import Flask
+import datetime
+
+present_date = datetime.datetime.now()
 
 app = Flask(__name__)
 
@@ -12,7 +15,7 @@ def hello():
     """
     basic hello function
     """
-    return "hello"
+    return f"time: {present_date}"
 
 
 if __name__ == '__main__':
