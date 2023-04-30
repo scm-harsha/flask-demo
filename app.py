@@ -5,16 +5,13 @@ from waitress import serve
 from flask import Flask
 import datetime
 
-present_date = datetime.datetime.now()
 
 app = Flask(__name__)
 
 
 @app.route("/hello")
 def hello():
-    """
-    basic hello function
-    """
+    present_date = datetime.datetime.now()
     return f"time: {present_date}"
 
 
