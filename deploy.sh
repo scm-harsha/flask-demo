@@ -1,11 +1,31 @@
 #!/bin/bash
 
 cd /home/ec2-user/flask-demo
-git pull origin main
-# pip install -r requirements.txt
-# Find the PID of the process listening on port 80
-pid=$(sudo fuser 80/tcp)
 
-# Kill the process with the PID we found
+# Update code from Git repository
+git pull origin main
+if [ $? -ne 0 ]; then
+    echo "Error: Git pull failed"
+    exit 1
+fi
+
+# Install new dependencies (if any)
+pip install -r requirements.txt
+if [ $? -ne 0 ]; then
+    echo "Error: pip install failed"
+    exit 1
+fi
+
+# Stop any existing Flask app running on port 80
+pid=$(sudo fuser 80/tcp)
 sudo kill -9 $pid
+
+# Start the Flask app
 sudo python3 app.py &
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to start Flask app"
+    exit 1
+fi
+
+# Wait for the Flask app to start
+wait
