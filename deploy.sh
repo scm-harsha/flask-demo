@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/ec2-user/flask-demo
+cd /home/ubuntu/flask-demo
 
 # Update code from Git repository
 git pull origin main
