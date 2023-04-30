@@ -28,4 +28,4 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "started the app"
-exit 0
+/tmp/sleep.sh > /dev/null 2> /dev/null < /dev/null &
