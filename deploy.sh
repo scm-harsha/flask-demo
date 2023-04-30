@@ -22,9 +22,10 @@ sudo kill -9 $pid
 
 # Start the Flask app
 sudo python3 app.py &
-echo "started the app"
-# if [ $? -ne 0 ]; then
-#     echo "Error: Failed to start Flask app"
-#     exit 1
-# fi
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to start Flask app"
+    exit 1
+fi
 
+echo "started the app"
+exit 0
