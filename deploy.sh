@@ -27,5 +27,3 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Wait for the Flask app to start
-wait
