@@ -12,7 +12,7 @@ def hello():
     """
     basic hello function
     """
-    return "hello harsha"
+    return "hello"
 
 
 if __name__ == '__main__':
