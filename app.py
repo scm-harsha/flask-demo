@@ -1,9 +1,9 @@
 """
 waitress is a web server which works well in prod for flask
 """
+import datetime
 from waitress import serve
 from flask import Flask
-import datetime
 
 
 app = Flask(__name__)
@@ -11,6 +11,9 @@ app = Flask(__name__)
 
 @app.route("/hello")
 def hello():
+    """
+    dummy function
+    """
     present_date = datetime.datetime.now()
     return f"time: {present_date}"
 
